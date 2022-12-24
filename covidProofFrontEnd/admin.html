@@ -1,0 +1,165 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CovidProof</title>
+    <link rel="stylesheet" href="admin.css">
+
+</head>
+<body>
+
+    <header>
+
+        <div id="nav">
+            <div id="logo">
+                <img src="images\covidProof.png" alt="">
+            </div>
+
+            <div class="loginBar">
+                <span onclick="openCloseform('addVacc')">Add Vaccine</span>
+                <span onclick="openCloseform('addCent')">Add Center</span>
+                <span onclick="openCloseform('addInven')">Add Inventory</span>
+                <span onclick="openCloseform('upAdPass')">Update Password</span>
+                <span onclick="logOutApp()">LogOut</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div id="adminInfo">
+            <ul>
+                <h2>Admin Profile</h2>
+                <li>Id: <span></span></li>
+                <li>Name: <span></span></li>
+                <li>Mobile No: <span></span></li>
+            </ul>
+
+        </div>
+
+        <h2>Vaccine Details</h2>
+        <div >
+            <table>
+                <thead>
+                        <td>SrNo</td>
+                        <td>Vaccine Name</td>
+                        <td>Price</td>
+                        <td>Description</td>
+                        <td>Remove</td>
+                </thead>
+                <tbody id="vaccDet">
+
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Vaccinenation Center Details</h2>
+        <div >
+            <table>
+                <thead>
+                        <td>SrNo</td>
+                        <td>Name</td>
+                        <td>City</td>
+                        <td>State</td>
+                        <td>Pincode</td>
+                        <td>Inventory</td>
+                        <td>Remove</td>
+                </thead>
+                <tbody id="centDet">
+
+                </tbody>
+            </table>
+        </div>
+
+        
+        <h2>Applicants Details</h2>
+        <div >
+            <table>
+                <thead>
+                        <td>SrNo</td>
+                        <td>Name</td>
+                        <td>Mobile</td>
+                        <td>City</td>
+                        <td>Delete</td>
+                </thead>
+                <tbody id="appliDet">
+
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <footer>
+        <div id="DeleteAdmin" onclick="deleteUser()">
+            Delete Account
+        </div>
+    </footer>
+
+    <div id="addVacc" class="formBG">
+        <form class="formCss" >
+            <p>Enter Details To Add Vaccine</p>
+            <span><u onclick="openCloseform('addVacc')">close</u></span>
+            <input type="text" placeholder="Vaccine Name" name="name" required>
+            <input type="text" placeholder="Price" name="price" required>
+            <input type="text" placeholder="Description" name="decr" required>
+            <input type="submit" value="Add Vaccine">
+        </form>
+    </div>
+
+    <div id="addCent" class="formBG">
+        <form class="formCss" >
+            <p>Enter Details To Add Vaccine Center</p>
+            <span><u onclick="openCloseform('addCent')">close</u></span>
+            <input type="text" placeholder="Center Name" name="name" required>
+            <input type="text" placeholder="Address" name="address" required>
+            <input type="text" placeholder="City" name="city" required>
+            <input type="text" placeholder="State" name="state" required>
+            <input type="text" placeholder="Pincode" name="pin" required>
+            <input type="submit" value="Add Center">
+        </form>
+    </div>
+
+    <div id="addInven" class="formBG">
+        <form class="formCss" >
+            <p>Enter Details To Add Vaccine Center</p>
+            <span><u onclick="openCloseform('addInven')">close</u></span>
+            <input type="text" placeholder="Vaccine Name" name="name" required>
+            <input type="text" placeholder="Description" name="decr" required>
+            <input type="text" placeholder="Price" name="price" required>
+            <input type="submit" value="Add Vaccine">
+        </form>
+    </div>
+
+    <div id="inventoryDisplay" class="formBG">
+        <div>
+            <p>Vaccine Inventory</p>
+            <span><u onclick="openCloseform('inventoryDisplay')">close</u></span>
+            <table>
+                <thead>
+                    <td>Sr No</td>
+                    <td>Vaccine Name</td>
+                    <td>Quantity</td>
+                </thead>
+            </table>
+
+        </div>
+    </div>
+
+    <div id="upAdPass" class="formBG">
+
+            <form class="formCss" >
+                <p>Update Admin Password</p>
+                <span><u onclick="openCloseform('upAdPass')">close</u></span>
+                <input type="text" placeholder="Old Password" name="oldPass" required>
+                <input type="text" placeholder="New Password" name="newPass" required>
+                <input type="submit" value="Update Password">
+            </form>
+
+    </div>
+
+</body>
+</html>
+
+<script src="admin.js"></script>

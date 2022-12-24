@@ -1,0 +1,7 @@
+package com.covidProodApp.Admin.DAO;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface adminDAO extends JpaRepository<v, ID> {
+
+}

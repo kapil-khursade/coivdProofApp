@@ -1,0 +1,12 @@
+package com.covidProodApp.Admin.Services;
+
+import org.springframework.http.ResponseEntity;
+
+import com.covidProodApp.Admin.Beans.vaccineDetails;
+import com.covidProodApp.Admin.DTO.output;
+import com.covidProodApp.Admin.Exceptions.vaccineDetailException;
+
+public interface adminServices {
+
+	public ResponseEntity<output> addVaccine(vaccineDetails vaccine) throws vaccineDetailException;
+}

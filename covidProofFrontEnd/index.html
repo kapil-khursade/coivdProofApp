@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CovidProof</title>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+    <header>
+        <div id="nav">
+
+            <div id="logo">
+                <img src="images\covidProof.png" alt="">
+            </div>
+
+            <div class="loginbar">
+               <span onclick="openCloseform('login')">Login</span>
+               <span onclick="openCloseform('registration')">Registration</span>
+               <span onclick="openCloseform('admin')">Admin Login</span>
+               <span onclick="openCloseform('adminRegi')">Admin Register</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div id="wallpaper">
+            <img src="https://www.cowin.gov.in/assets/images/independance.svg" alt="India">
+        </div>
+
+        <div id="mainBoxIndex">
+                <h2>Register Yourself On Covid Proof To Get Your Armor Against Corona Vrius</h2>
+
+                <div>
+                    <div>
+                        <div>Step 1</div>
+                        <p>Register Yourself on Our Portal.</p>
+                        <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.luwisomo.org%2Fwp-content%2Fuploads%2F2016%2F07%2Fregister-icon-blue1.png&f=1&nofb=1&ipt=97dbbf4c21f6622cead9735517c842a510354a359a0f69447d6c4fdd8d2bb840&ipo=images" alt="">
+                    </div>
+
+                    <div>
+                        <div>Step 2</div>
+                        <p>Search and Book Slot according to your convinence.</p>
+                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcontent.milescc.edu%2Fimages%2FBookstore%2Fbooking_online-512.png&f=1&nofb=1&ipt=4b0834279945f3f206379c2458c0ac5fa9e63f9812d1ff1ff367029eb07afcb9&ipo=images" alt="">
+                    </div>
+
+                    <div>
+                        <div>Step 3</div>
+                        <p>Go on the center and get your dose of vaccine.</p>
+                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcovid.uconn.edu%2Fwp-content%2Fuploads%2Fsites%2F3268%2F2021%2F05%2Fhomepage-icons_vaccine-color.png&f=1&nofb=1&ipt=906b9b9c2166c02f1020be7dde04a68a1651a471f36537b1751a1b746323f687&ipo=images" alt="">
+                    </div>
+                </div>
+        </div>
+    </main>
+
+    <div id="login" class="fromBG">
+        <form class="formCss" name="loginForm">
+            <p>User Login</p>
+            <p>Enter Your Registered Mobile Number And Date Of Birth</p>
+            <span><u onclick="openCloseform('login')">close</u></span>
+            <input type="text" name="mobile" placeholder="Mobile Number" required>
+            <input type="date" name="dob" placeholder="Date Of Birth" required >
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <div  id="registration" class="fromBG" >
+        <form class="formCss">
+            <p>User Registration</p>
+            <p>Enter Your Details</p>
+            <span><u onclick="openCloseform('registration')">close</u></span>
+            <input type="text" placeholder="name" name="name" required >
+            <input type="date" placeholder="DateOfBirth" name="Dob" required >
+            <input type="text" placeholder="Mobile Number" name="mobile" required >
+            <Select name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Non-Binary</option>
+            </Select>
+            <input type="text" placeholder="Address" name="address" required >
+            <input type="text" placeholder="City" name="city"  required>
+            <input type="text" placeholder="pincode" name="pin"  required>
+            <input type="text" placeholder="AdharcardNo" name="adhar" required>
+            <input type="text" placeholder="PancardNo" name="pan" required>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <div id="admin" class="fromBG">
+        <form class="formCss">
+            <p>Admin Login</p>
+            <p>Enter Your Registered Mobile Number And Password</p>
+            <span><u onclick="openCloseform('admin')">close</u></span>
+            <input type="text" placeholder="Mobile Number" name="mobile" required>
+            <input type="text" placeholder="Password" name="password" required>
+            <input type="submit" value="Login" required>
+        </form>
+    </div>
+
+    <div id="adminRegi" class="fromBG">
+        <form class="formCss">
+            <p>Admin Registration</p>
+            <p>Enter Your Details</p>
+            <span><u onclick="openCloseform('adminRegi')">close</u></span>
+            <input type="text" placeholder="Name" name="name" required>
+            <input type="text" placeholder="Mobile Number" name="mobile" required>
+            <input type="text" placeholder="Password" name="password" required>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+
+
+    <footer>
+        <div class="loginbar" id="mob">
+            <span onclick="openCloseform('login')"><a href="#login">Login</a></span>
+            <span onclick="openCloseform('registration')"><a href="#registration">Registration</a></span>
+            <span onclick="openCloseform('admin')"><a href="#admin">Admin Login</a></span>
+            <span onclick="openCloseform('adminRegi')"><a href="#adminRegi">Admin Register</a></span>
+        </div>
+    </footer>
+    
+</body>
+</html>
+
+<script src="index.js"></script>

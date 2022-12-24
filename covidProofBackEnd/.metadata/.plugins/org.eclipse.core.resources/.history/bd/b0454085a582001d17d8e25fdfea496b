@@ -1,0 +1,5 @@
+package com.covidProofApp.loginAndRegistration.DTO;
+
+public class adminDTO {
+
+}

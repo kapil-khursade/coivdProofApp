@@ -1,0 +1,220 @@
+/* navbar */
+#nav{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(194,231,255);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+}
+#logo{
+    width: 10vw;
+}
+#logo>img{
+    height: 60px;
+    margin-left: 25px;
+}
+
+#nav>div:nth-child(2){
+    width: 45vw;
+    height: 60px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 18px;
+}
+
+#nav>div:nth-child(2)>span{
+    cursor: pointer;
+}
+
+#nav>div:nth-child(2)>span:hover{
+    transform: scale(1.1);
+}
+
+.loginBar{
+    text-align: center;
+    line-height: 60px;
+    font-weight: 400;
+    color: grey;
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 40px;
+}
+
+main{
+    margin-top: 70px;
+}
+main>div{
+    width: 100vw;
+}
+
+main > h2{
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Comman to all the tables */
+table{
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+ }
+
+ table>thead{
+    background-color:rgb(194,231,255);
+    color: rgb(66, 64, 64);
+    font-weight: 600;
+    font-size: large;
+    height: 50px;
+}
+
+table>tbody>tr>td:first-child{
+    width: 50px;
+}
+
+table>tbody>tr>td:last-child{
+    background-color: rgb(231, 13, 13, 0.8);
+    color: white;
+    cursor: pointer;
+    width: 80px;
+}
+
+table>tbody>tr>td:last-child:hover{
+    transform: scale(1.05);
+}
+
+table>tbody>tr>td:nth-child(6){
+    cursor: pointer;
+}
+
+table>tbody>tr:nth-child(even){
+    background-color: rgb(194,231,255, 0.4);
+}
+
+/* froms */
+
+.formBG{
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+}
+
+.formCss{
+    width: 400px;
+    height: max-content;
+    background-color: rgb(194,231,255);
+    opacity: 1;
+    border-radius: 10px;
+    padding-top: 15px;
+    color: rgb(66, 64, 64);
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    top: 40px;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.formCss>p{
+    text-align: center;
+}
+
+.formCss>span{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.formCss>input, .formCss>select{
+    width: 90%;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 5%;
+    border: none;
+}
+
+.formCss>input:first-child{
+    margin-top: 15px;
+}
+
+.formCss>input:last-child{
+    width: 30%;
+    margin-left: 35%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(9, 146, 236);
+    color: white;
+    cursor: pointer;
+}
+
+.formCnt{
+    display: block;
+}
+
+.stopScroll{
+  overflow-y: hidden;  
+}
+
+/* Show inventory */
+#inventoryDisplay > div{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    margin: 50px auto auto auto;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+#inventoryDisplay >div>span{
+    position: relative;
+    top: -50px;
+    left: 455px;
+    cursor: pointer;
+}
+
+#inventoryDisplay >div>p{
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Deelte user */
+#DeleteAdmin{
+    width: 200px;
+    height: 40px;
+    background-color: rgb(231, 13, 13, 0.8);
+    margin-top: 55px;
+    margin: 50px auto;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    font-size: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/* admin profile */
+#adminInfo{
+    width: max-content;
+    height: max-content;
+    background-color: rgb(194,231,255);
+    border-radius:  10px;
+    padding: 10px 10px 10px 0px;
+    margin: 10px 0px 20px 20px;
+}
+
+#adminInfo>ul{
+    list-style-type: none;
+}

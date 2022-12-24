@@ -1,0 +1,5 @@
+package com.covidProofApp.loginAndRegistration.Beans;
+
+public class adminIdCard {
+
+}

@@ -1,0 +1,5 @@
+package com.covidProofApp.loginAndRegistration.Exeptions;
+
+public class GlobalExceptionHandler {
+
+}

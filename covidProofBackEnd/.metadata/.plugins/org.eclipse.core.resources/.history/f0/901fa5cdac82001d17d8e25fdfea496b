@@ -1,0 +1,24 @@
+package com.covidProofApp.loginAndRegistration.MyController;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.covidProofApp.loginAndRegistration.Beans.adminIdCard;
+import com.covidProofApp.loginAndRegistration.Service.adminServices;
+
+@RestController
+@RequestMapping("/admin")
+public class adminController {
+	
+	@Autowired
+	private adminServices adser;
+
+	public ResponseEntity<adminIdCard> registerAdmin(adminIdCard admin) {
+		
+		adminIdCard admin = adser.registerAdmin(admin);
+	}
+}

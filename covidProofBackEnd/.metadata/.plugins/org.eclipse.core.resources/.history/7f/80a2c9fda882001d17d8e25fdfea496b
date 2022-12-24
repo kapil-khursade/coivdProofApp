@@ -1,0 +1,12 @@
+package com.covidProofApp.loginAndRegistration.DAO;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.http.ResponseEntity;
+
+import com.covidProofApp.loginAndRegistration.Beans.adminIdCard;
+import com.covidProofApp.loginAndRegistration.Exeptions.adminExceptions;
+
+public interface adminDAO extends JpaRepository<adminIdCard, Integer> {
+
+	public ResponseEntity<adminIdCard> findByMobileno(String mobileno) throws adminExceptions;
+}

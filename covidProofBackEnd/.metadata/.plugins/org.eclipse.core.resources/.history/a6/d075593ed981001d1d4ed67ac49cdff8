@@ -1,0 +1,55 @@
+package com.covidProofApp.loginAndRegistration.Beans;
+
+import java.sql.Date;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class applicantIdCard {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+	@NotBlank
+	@NotEmpty
+	@NotNull
+	@Size(min=3, max=15, message = "Name Must Be Between 3 and 15 Characters.")
+	private String name;
+	@Past(message = "Invalid Date Of Birth")
+	private Date dob;
+	@NotBlank
+	@NotEmpty
+	@NotNull
+	@Size(min=1, max=1, message = "Gender Must Be 1 Characters.")
+	private String gender;
+	@NotBlank
+	@NotEmpty
+	@NotNull
+	@Size(min=10, max=10, message = "Mobile Must Be 10 Characters.")
+	private long mobileNo;
+	@NotBlank
+	@NotEmpty
+	@NotNull
+	@Size(min=3, max=25, message = "Address Must Be Between 3 and 25 Characters.")
+	private String address;
+	@NotBlank
+	@NotEmpty
+	@NotNull
+	@Size(min=3, max=25, message = "Address Must Be Between 3 and 25 Characters.")
+	private String city;
+	@Size(min=3, max=25, message = "Address Must Be Between 3 and 25 Characters.")
+	private int pincode;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private applicantAdhar adhar;
+	@OneToOne(cascade = CascadeType.ALL)
+	private applicantPan pan;
+}

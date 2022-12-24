@@ -1,0 +1,31 @@
+package com.covidProofApp.loginAndRegistration.Beans;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class applicantAdhar {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+	@NotBlank
+	@NotEmpty
+	@NotNull
+	@Size(min=16, max=16, message = "Adhar Number Must Be 16 Digits")
+	private String adharNumber;
+	
+	@OneToOne(mappedBy = "adhar", cascade = CascadeType.ALL)
+	private applicantIdCard applicant;
+	
+}

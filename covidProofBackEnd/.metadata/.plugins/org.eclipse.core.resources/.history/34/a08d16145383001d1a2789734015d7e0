@@ -1,0 +1,23 @@
+package com.covidProodApp.Admin.Services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+
+import com.covidProodApp.Admin.Beans.vaccineDetails;
+import com.covidProodApp.Admin.Exceptions.vaccineDetailException;
+import com.covidProofApp.loginAndRegistration.DAO.adminDAO;
+
+public class adminServicesImpl implements adminServices {
+
+	@Autowired
+	private adminDAO asdao;
+	
+	@Override
+	public ResponseEntity<vaccineDetails> addVaccine(vaccineDetails vaccine) throws vaccineDetailException {
+		// TODO Auto-generated method stub
+		
+		vaccineDetails addedVaccine = asdao.save(vaccine);
+		return null;
+	}
+
+}

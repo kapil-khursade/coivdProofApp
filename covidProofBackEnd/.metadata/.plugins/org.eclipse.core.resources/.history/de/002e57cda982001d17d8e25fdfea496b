@@ -1,0 +1,15 @@
+package com.covidProofApp.loginAndRegistration.Exeptions;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+	    @ExceptionHandler(applicantException.class)
+		public ResponseEntity<String> ErrorResponsehandleException(applicantException ex){
+		  return new ResponseEntity<String>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+}

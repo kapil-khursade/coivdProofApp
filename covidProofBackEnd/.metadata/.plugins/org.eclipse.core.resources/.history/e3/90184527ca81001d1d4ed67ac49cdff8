@@ -1,0 +1,9 @@
+package com.covidProofApp.loginAndRegistration.Service;
+
+import com.covidProofApp.loginAndRegistration.Beans.applicantIdCard;
+import com.covidProofApp.loginAndRegistration.Exeptions.applicantException;
+
+public interface applicantsServices {
+
+	public applicantIdCard registerApplicant(applicantIdCard idCard) throws applicantException;
+}

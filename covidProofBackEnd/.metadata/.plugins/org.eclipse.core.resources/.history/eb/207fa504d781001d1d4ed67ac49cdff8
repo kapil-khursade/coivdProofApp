@@ -1,0 +1,32 @@
+package com.covidProofApp.loginAndRegistration.Beans;
+
+import java.sql.Date;
+
+import javax.persistence.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class applicantIdCard {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+	private String name;
+	private Date dob;
+	private String gender;
+	private long mobileNo;
+	private String address;
+	private String city;
+	private int pincode;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private applicantAdhar adhar;
+	@OneToOne(cascade = CascadeType.ALL)
+	private applicantPan pan;
+}

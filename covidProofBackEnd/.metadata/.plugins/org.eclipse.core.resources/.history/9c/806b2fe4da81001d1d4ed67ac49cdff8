@@ -1,0 +1,36 @@
+package com.covidProofApp.loginAndRegistration.MyController;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.covidProofApp.loginAndRegistration.Beans.applicantIdCard;
+import com.covidProofApp.loginAndRegistration.DTO.applicantDTO;
+import com.covidProofApp.loginAndRegistration.Exeptions.applicantException;
+import com.covidProofApp.loginAndRegistration.Service.applicantsServices;
+
+@RestController
+@RequestMapping("/applicant")
+public class applicantController {
+	
+	@Autowired
+	private applicantsServices appSer;
+
+	@PostMapping("/register")
+	public ResponseEntity<applicantIdCard> registerApplicant(@Valid @RequestBody applicantIdCard idCard) throws applicantException{
+		
+		return appSer.registerApplicant(idCard);
+		
+	}
+	
+	@GetMapping("/login")
+	public ResponseEntity<applicantIdCard> loginApplicant(@Valid @RequestBody applicantDTO appLogDTO) throws applicantException{
+		return appSer.loginApplicant(appLogDTO);
+	}
+}

@@ -1,0 +1,36 @@
+package com.covidProofApp.loginAndRegistration.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import com.covidProofApp.loginAndRegistration.Beans.adminIdCard;
+import com.covidProofApp.loginAndRegistration.DAO.adminDAO;
+import com.covidProofApp.loginAndRegistration.DTO.adminDTO;
+import com.covidProofApp.loginAndRegistration.Exeptions.adminExceptions;
+
+public class adminServicesImpl implements adminServices  {
+
+	@Autowired
+	private adminDAO adao;
+	
+	@Override
+	public ResponseEntity<adminIdCard> registerAdmin(adminIdCard adIdCard) throws adminExceptions {
+		// TODO Auto-generated method stub
+		adminIdCard idcard = adao.save(adIdCard);
+		if(idcard==null)throw new adminExceptions("Cant Save The Admin.");
+		return new ResponseEntity<adminIdCard>(idcard, HttpStatus.ACCEPTED);
+	}
+
+	@Override
+	public ResponseEntity<adminIdCard> loginAdmin(adminDTO adminLog) throws adminExceptions {
+		// TODO Auto-generated method stub
+		 adminIdCard adminidcard = adao.findByMobileno(adminLog.getMobileno());
+		 
+		if(adminidcard==null || !adminLog.getMobileno().equals(adminidcard.getMobileno()))throw new adminExceptions("Invalid Credential");
+		
+		return new ResponseEntity<adminIdCard>(adminidcard, HttpStatus.ACCEPTED);
+	}
+
+}
+

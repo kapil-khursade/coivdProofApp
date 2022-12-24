@@ -1,0 +1,12 @@
+package com.covidProodApp.Admin.DAO;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.covidProodApp.Admin.Beans.centerInventory;
+
+public interface centerInventoryDAO extends JpaRepository<centerInventory, Integer>{
+
+	public List<centerInventory> findByVaccineCenter(Integer id);
+}

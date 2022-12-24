@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;WebConfig.java&apos; to &apos;Admin/src/main/java/com.covidProodApp.Admin.config&apos;&#x0D;&#x0A;- Original project: &apos;loginAndRegistration&apos;&#x0D;&#x0A;- Destination element: &apos;Admin/src/main/java/com.covidProodApp.Admin.config&apos;&#x0D;&#x0A;- Original element: &apos;com.covidProofApp.loginAndRegistration.config.WebConfig.java&apos;" description="Copy compilation unit" destination="=Admin/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.covidProodApp.Admin.config" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.covidProofApp.loginAndRegistration.config{WebConfig.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1671861266853" units="1" version="1.0"/>
+</session>

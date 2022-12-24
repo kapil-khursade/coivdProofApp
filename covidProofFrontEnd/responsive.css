@@ -1,0 +1,145 @@
+@media only screen and (max-width: 960px) {
+ 
+ #nav>div:nth-child(2){
+    width: 60vw;
+ }
+
+ main{
+    display: block;
+    margin: auto;
+    margin-top: 70px;
+ }
+ main>div{
+    width: 100vw;
+    height: 40vh;
+ }
+#mainBox{
+    display: block;
+}
+
+#mainBox>div{
+    width: 100vw;
+    height: 100vh;
+    margin-bottom: 80px;
+}
+
+#mainBox>div:nth-child(2){
+    width: 90vw; 
+    height: auto;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+#mainBoxIndex{
+    margin-top: 400px;
+}
+
+#vaccineStatus>div:nth-child(3){
+    display: none;
+}
+
+#appointDetails>table{
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#appointDetails>table>thead{
+    width: 100%;
+}
+
+#mainBox>div:first-child{
+    width: 80vw;
+    margin-top: 10px;
+    height: auto;
+    padding: 15px 0 15px 0;
+    margin: auto;
+}
+}
+
+
+@media only screen and (max-width: 520px) {
+ 
+    #nav>div:nth-child(2){
+       display: none;
+    }
+
+    #mob{
+        display: flex;
+        z-index: -2;
+    }
+
+    #mainBox>h2{
+        font-size: 15px;
+    }
+
+    .formCss{
+        width: 300px;
+    }
+
+    #vaccineStatus{
+        width: 100%;
+    }
+
+    #vaccineStatus>div:nth-child(3){
+        display: none;
+    }
+
+    #mainBox{
+        display: block;
+    }
+
+    #mainBox>div{
+        width: 100vw;
+        height: 100vh;
+        margin-bottom: 80px;
+    }
+
+    #mainBox>div:nth-child(2){
+        width: 95vw; 
+        margin: auto;
+        margin-bottom: 0px;
+    }
+
+    #mainBoxIndex{
+        margin-top: 100px;
+        margin-bottom: 40px;
+    }
+
+    #mainBoxIndex>h2{
+        font-size: 16px;
+    }
+
+    #mainBoxIndex>div>div>div{
+        width: 60%;
+        left: 20%;
+        margin-bottom: 10px;
+    }
+
+    #mainBoxIndex>div>div{
+        font-size: 80%;
+        height: auto;
+    }
+  
+    table{
+        width: 100%;
+        margin: 10px 0px 25px 0px;
+        font-size: 14px;
+    }
+
+    table>thead{
+        width: 100%;
+    }
+
+
+
+    #mainBox>div:first-child{
+        width: 90vw;
+        margin-top: 10px;
+    }
+
+    /* delete button */
+    #DeleteUser{
+        margin-bottom: 70px;
+    }
+}
