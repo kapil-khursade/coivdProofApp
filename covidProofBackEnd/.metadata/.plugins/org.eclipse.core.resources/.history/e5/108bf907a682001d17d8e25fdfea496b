@@ -1,5 +1,0 @@
-package com.covidProofApp.loginAndRegistration.DAO;
-
-public interface adminDAO {
-
-}

@@ -1,9 +1,0 @@
-package com.covidProodApp.Admin.adminController;
-
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-
-public class adminController {
-
-}

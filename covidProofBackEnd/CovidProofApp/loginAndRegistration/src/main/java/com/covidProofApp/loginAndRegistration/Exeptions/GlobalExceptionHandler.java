@@ -26,6 +26,6 @@ public class GlobalExceptionHandler {
 	    	String mes = "Error";
 	    	if(ex.getMessage().contains("ConstraintViolationException"))mes= "Try New Inputs";
 	    	
-	    	return new ResponseEntity<MyError>(new MyError(mes, LocalDateTime.now()), HttpStatus.BAD_REQUEST);
+	    	return new ResponseEntity<MyError>(new MyError(ex.getMessage(), LocalDateTime.now()), HttpStatus.BAD_REQUEST);
 	 	}
 }

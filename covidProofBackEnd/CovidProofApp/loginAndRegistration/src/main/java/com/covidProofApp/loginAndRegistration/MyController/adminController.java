@@ -100,9 +100,15 @@ public class adminController {
 		return adallser.deleteVaccineCenter(Id);
 	}	
 	
-	@PutMapping("/addCenterInventory")
-	public ResponseEntity<adminoutput> addCenterInventory(@RequestBody vaccineCenter center) throws centerException{
-		return adallser.addCenterInventory(center);
+	@PutMapping("/addCenterInventory/{id}")
+	public ResponseEntity<adminoutput> addCenterInventory(@RequestBody centerInventory inve,@PathVariable("id")  Integer id) throws centerException{
+		return adallser.addCenterInventory(inve, id);
 	}
+	
+	@GetMapping("/getInvenotry/{id}")
+	public ResponseEntity<List<centerInventory>> getInventory(@PathVariable("id") Integer id) throws centerException{
+		return adallser.getCenterInventory(id);
+	}
+	
 	
 }

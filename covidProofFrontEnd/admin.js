@@ -22,6 +22,7 @@ window.onload = (event) => {
 
 // Appending vaccine detail table
 vaccDetail();
+let vaccines = [];
 function vaccDetail(){
     // fetching the data
     const getVaccineList = async () => {
@@ -29,6 +30,7 @@ function vaccDetail(){
         let p = await fetch('http://localhost:8880/admin/allVaccines')
         let response = await p.json()
         // appending the data
+        vaccines=response;
 
         document.getElementById("vaccDet").innerHTML=null;
 
@@ -37,6 +39,16 @@ function vaccDetail(){
         response[i].vaccineName + '</td><td>' + response[i].price + '</td><td>' +
         response[i].description + '</td><td onclick="deleteVacc('+response[i].id+')">' + "Delete" + '</td></tr>';
         document.getElementById("vaccDet").innerHTML+=(row);
+        }
+
+        // shoving vaccine select oprions in add inventory
+        document.getElementById("invenVaccine").innerHTML=null;
+        document.getElementById("invenVaccine").innerHTML='<option value="">'+ "Select Vaccine" +'</option>'; 
+        if(response.length>0){
+            for(i=0; i<response.length; i++){
+                document.getElementById("invenVaccine").innerHTML+=
+                '<option value="'+ response[i].id +'">'+ response[i].vaccineName +'</option>'; 
+            }
         }
     }
     getVaccineList();
@@ -69,6 +81,7 @@ function deleteVacc(id){
 }
 
 // appendig the center data
+let centers = [];
 centerDetail();
 function centerDetail(){
     
@@ -76,17 +89,34 @@ function centerDetail(){
         let p = await fetch('http://localhost:8880/admin/allVacineCenter')
         let response = await p.json();
 
+        centers = response;
         document.getElementById("centDet").innerHTML=null;
-        for(i=0; i<response.length; i++){
 
-        let row = '<tr><td>' + Number(i+1) + '</td><td>' +
-        response[i].centerName + '</td><td>' + response[i].city + '</td><td>' +
-        response[i].state +'</td><td>' + response[i].pincode + 
-        '</td><td onclick="showInventory('+response[i].center_ID+')">' + 
-        "Show Inventory" + '</td><td onclick="deleteCenter('+response[i].center_ID+')">'+ "Delete" + '</td></tr>';
+        if(response.message==null){
+            
+            for(i=0; i<response.length; i++){
+                let row = '<tr><td>' + Number(i+1) + '</td><td>' +
+                response[i].centerName + '</td><td>' + response[i].city + '</td><td>' +
+                response[i].state +'</td><td>' + response[i].pincode + 
+                '</td><td onclick="showInventory('+response[i].id+')">' + 
+                "Show Inventory" + '</td><td onclick="deleteCenter('+response[i].id+')">'+ "Delete" + '</td></tr>';
+        
+                document.getElementById("centDet").innerHTML+=(row);
+            }
 
-        document.getElementById("centDet").innerHTML+=(row);
+                // shoving vaccine select oprions in add inventory
+                document.getElementById("invenCenter").innerHTML=null;
+                document.getElementById("invenCenter").innerHTML='<option value="">'+ "Select Center" +'</option>'; 
+                if(response.length>0){
+                    for(i=0; i<response.length; i++){
+                        document.getElementById("invenCenter").innerHTML+=
+                        '<option value="'+ response[i].id +'">'+ response[i].centerName +'</option>'; 
+                    }
+                }
+        }else{
+            document.getElementById("centDet").innerHTML='<tr>'+response.message+'</tr>';
         }
+    
     }
 
     getCentersList();
@@ -94,7 +124,23 @@ function centerDetail(){
 
 // showing center inventory
 function showInventory(centerId){
-    openCloseform('inventoryDisplay');
+
+    const getInvenotryCen = async () =>{
+        let p = await fetch('http://localhost:8880/admin/getInvenotry/'+centerId);
+        let response = await p.json();
+        document.getElementById("inveBody").innerHTML=null;
+        for(i=0; i<response.length; i++){
+
+            let row = '<tr><td>' + Number(i+1) + '</td><td>' +
+            response[i].vaccine.vaccineName + '</td><td>' +
+            response[i].quantity + '</td></tr>'; 
+
+            document.getElementById("inveBody").innerHTML+=row;
+        }
+    }
+
+    getInvenotryCen();
+    openCloseform('getInvenotry');
 }
 
 // delteing the cneter
@@ -214,13 +260,17 @@ function showApplicant(){
         let response = await p.json()
         // appending the data
         document.getElementById("appliDet").innerHTML=null;
-        for(i=0; i<response.length; i++){
-        let row = '<tr><td>' + Number(i+1) + '</td><td>' +
-        response[i].name + '</td><td>' + 
-        response[i].mobileno + '</td><td>' +
-        response[i].city + '</td><td onclick="deleteUser('+response[i].id+')">' + 
-        "Delete" + '</td></tr>';
-        document.getElementById("appliDet").innerHTML+=(row);
+        if(response.message==null){
+            for(i=0; i<response.length; i++){
+                let row = '<tr><td>' + Number(i+1) + '</td><td>' +
+                response[i].name + '</td><td>' + 
+                response[i].mobileno + '</td><td>' +
+                response[i].city + '</td><td onclick="deleteUser('+response[i].id+')">' + 
+                "Delete" + '</td></tr>';
+                document.getElementById("appliDet").innerHTML+=(row);
+                }
+        }else{
+            document.getElementById("appliDet").innerHTML='<tr>'+response.message+'</tr>';
         }
     }
     getApplicantList();
@@ -234,7 +284,7 @@ function deleteUser(id){
         const deleteApplicant = async () => {
 
             let urlf = "http://localhost:8880/applicant/delete/"+id;
-            console.log(urlf);
+
             fetch(urlf, {
             method: 'DELETE'
             })
@@ -253,4 +303,66 @@ function deleteUser(id){
         if(out){
             deleteApplicant();
           }
+}
+
+
+// aading the center
+let addCentForm = document.querySelector("#addCent>form");
+addCentForm.onsubmit = function(event){
+
+    event.preventDefault();
+
+    const addCenters = async () => {
+
+        let options = {
+            method: "POST",
+            headers: {
+                    "Content-type": "application/json"
+            },
+            body: JSON.stringify(
+                {
+                    "centerName": addCentForm.name.value,
+                    "city": addCentForm.city.value,
+                    "state": addCentForm.state.value,
+                    "pincode": addCentForm.pin.value,
+                    "inventory": []
+                }
+            ),
+            }
+            let p = await fetch('http://localhost:8880/admin/addCenter', options)
+            let response = await p.json();
+            alert(response.message);
+    }
+
+    addCenters();
+    centerDetail();
+}
+
+// Adding the inventory of the center
+let addInveForm = document.querySelector("#addInven>form");
+addInveForm.onsubmit = function(event){
+    event.preventDefault();
+
+    const addInventory = async() =>{
+        let options = {
+            method: "PUT",
+            headers: {
+                    "Content-type": "application/json"
+            },
+            body: JSON.stringify(
+                {
+                    "vaccine": {
+                        "id" : addInveForm.vaccine.value
+                    },
+                    "quantity": addInveForm.quantity.value
+                }
+            ),
+            }
+
+            let p = await fetch('http://localhost:8880/admin/addCenterInventory/'+addInveForm.center.value, options)
+            let response = await p.json();
+            alert(response.message);
+    }
+
+    addInventory();
 }

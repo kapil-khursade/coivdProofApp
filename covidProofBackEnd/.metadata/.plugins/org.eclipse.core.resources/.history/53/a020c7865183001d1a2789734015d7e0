@@ -1,5 +1,0 @@
-package com.covidProodApp.Admin.Services;
-
-public interface adminServices {
-
-}

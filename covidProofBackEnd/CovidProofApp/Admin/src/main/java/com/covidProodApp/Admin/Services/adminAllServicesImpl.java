@@ -1,5 +1,6 @@
 package com.covidProodApp.Admin.Services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -99,12 +100,28 @@ public class adminAllServicesImpl implements adminAllServices {
 
 
 	@Override
-	public ResponseEntity<adminoutput> addCenterInventory(vaccineCenter center) throws centerException {
+	public ResponseEntity<adminoutput> addCenterInventory(centerInventory inve, Integer id) throws centerException {
 		// TODO Auto-generated method stub
-		vaccineCenter vcent = vcdao.save(center);
-//		centerInventory inven = center.getInventory().get(center.getInventory().size()-1);
-//		cidao.save(inven);
-		return new ResponseEntity<adminoutput>(new adminoutput("Invenotry Added For "), HttpStatus.ACCEPTED);
+		vaccineCenter center = vcdao.findById(id).get();
+		
+		List<centerInventory> inveList = center.getInventory();
+		inveList.add(inve);
+		
+		center.setInventory(inveList);
+		vcdao.save(center);
+//		cidao.save(inve);
+		
+		return new ResponseEntity<adminoutput>(new adminoutput("Invenotry Added For "+center.getCenterName()), HttpStatus.ACCEPTED);
+	}
+
+
+	@Override
+	public ResponseEntity<List<centerInventory>> getCenterInventory(Integer id) throws centerException {
+		// TODO Auto-generated method stub
+		
+		List<centerInventory> inveList = vcdao.findById(id).get().getInventory();
+		
+		return new  ResponseEntity<List<centerInventory>>(inveList, HttpStatus.ACCEPTED);
 	}
 
 }

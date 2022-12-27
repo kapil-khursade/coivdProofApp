@@ -1,5 +1,0 @@
-package com.covidProofApp.loginAndRegistration.Service;
-
-public interface adminServices {
-
-}

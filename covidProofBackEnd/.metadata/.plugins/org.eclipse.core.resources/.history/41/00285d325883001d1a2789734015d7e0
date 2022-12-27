@@ -1,9 +1,0 @@
-package com.covidProodApp.Admin.DAO;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.covidProodApp.Admin.Beans.vaccineDetails;
-
-public interface vaccineDetailDAO extends JpaRepository<vaccineDetails, Integer> {
-
-}

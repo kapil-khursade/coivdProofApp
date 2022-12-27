@@ -1,5 +1,0 @@
-package com.covidProodApp.Admin.Exceptions;
-
-public class vaccineDetailException {
-
-}

@@ -169,23 +169,23 @@ table>tbody>tr:nth-child(even){
 }
 
 /* Show inventory */
-#inventoryDisplay > div{
+#getInvenotry > div{
     width: 500px;
-    height: 300px;
+    height: auto;
     background-color: white;
     margin: 50px auto auto auto;
     padding: 1%;
     border-radius: 10px;
 }
 
-#inventoryDisplay >div>span{
+#getInvenotry >div>span{
     position: relative;
     top: -50px;
     left: 455px;
     cursor: pointer;
 }
 
-#inventoryDisplay >div>p{
+#getInvenotry >div>p{
     text-align: center;
     font-weight: 600;
 }
