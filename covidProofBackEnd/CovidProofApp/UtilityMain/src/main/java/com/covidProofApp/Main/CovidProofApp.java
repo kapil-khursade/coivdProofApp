@@ -1,4 +1,4 @@
-package com.covidProofApp.loginAndRegistration;
+package com.covidProofApp.Main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,10 +10,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = {"com.covidProofApp.loginAndRegistration", "com.covidProodApp.Admin"})
 @EntityScan(basePackages = {"com.covidProofApp.loginAndRegistration", "com.covidProodApp.Admin"})
 @EnableJpaRepositories(basePackages = {"com.covidProofApp.loginAndRegistration", "com.covidProodApp.Admin"})
-public class loginAndRegistraionMain {
+public class CovidProofApp {
 
 	public static void main(String[] args) throws Exception {
-		SpringApplication.run(loginAndRegistraionMain.class, args);
+		SpringApplication.run(CovidProofApp.class, args);
 	}
 
 }

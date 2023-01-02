@@ -7,9 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.covidProofApp.loginAndRegistration"})
-@EntityScan(basePackages = {"com.covidProofApp.loginAndRegistration"})
-@EnableJpaRepositories(basePackages = {"com.covidProofApp.loginAndRegistration"})
 public class CovidProofAppApplication {
 
 	public static void main(String[] args) {

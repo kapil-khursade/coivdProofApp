@@ -110,5 +110,8 @@ public class adminController {
 		return adallser.getCenterInventory(id);
 	}
 	
-	
+	@DeleteMapping("/deleteInventory/{id}")
+	public ResponseEntity<adminoutput> deleteInventory(@PathVariable("id") Integer id) throws centerException{
+		return adallser.deleteInventory(id);
+	}
 }

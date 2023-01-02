@@ -23,6 +23,63 @@
                <span onclick="openCloseform('admin')">Admin Login</span>
                <span onclick="openCloseform('adminRegi')">Admin Register</span>
             </div>
+            <div id="login" class="fromBG">
+                <form class="formCss" name="loginForm">
+                    <p>User Login</p>
+                    <p>Enter Your Registered Mobile Number And Date Of Birth</p>
+                    <span><u onclick="openCloseform('login')">close</u></span>
+                    <input type="text" name="mobile" placeholder="Mobile Number" required>
+                    <input type="date" name="dob" placeholder="Date Of Birth" required >
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+        
+            <div  id="registration" class="fromBG" >
+                <form class="formCss">
+                    <p>User Registration</p>
+                    <p>Enter Your Details</p>
+                    <span><u onclick="openCloseform('registration')">close</u></span>
+                    <input type="text" placeholder="name" name="name" required >
+                    <input type="date" placeholder="DateOfBirth" name="Dob" required >
+                    <input type="text" placeholder="Mobile Number" name="mobile" required >
+                    <Select name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Trangender">Transgender</option>
+                    </Select>
+                    <input type="text" placeholder="Address" name="address" required >
+                    <input type="text" placeholder="City" name="city"  required>
+                    <input type="text" placeholder="pincode" name="pin"  required>
+                    <input type="text" placeholder="AdharcardNo" name="adhar" required>
+                    <input type="text" placeholder="PancardNo" name="pan" required>
+                    <input type="submit" value="Register">
+                </form>
+            </div>
+        
+            <div id="admin" class="fromBG">
+                <form class="formCss">
+                    <p>Admin Login</p>
+                    <p>Enter Your Registered Mobile Number And Password</p>
+                    <span><u onclick="openCloseform('admin')">close</u></span>
+                    <input type="text" placeholder="Mobile Number" name="mobile" required>
+                    <input type="text" placeholder="Password" name="password" required>
+                    <input type="submit" value="Login" required>
+                </form>
+            </div>
+        
+            <div id="adminRegi" class="fromBG">
+                <form class="formCss">
+                    <p>Admin Registration</p>
+                    <p>Enter Your Details</p>
+                    <span><u onclick="openCloseform('adminRegi')">close</u></span>
+                    <input type="text" placeholder="Name" name="name" required>
+                    <input type="text" placeholder="Mobile Number" name="mobile" required>
+                    <input type="text" placeholder="Password" name="password" required>
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+        
         </div>
     </header>
 
@@ -57,63 +114,7 @@
         </div>
     </main>
 
-    <div id="login" class="fromBG">
-        <form class="formCss" name="loginForm">
-            <p>User Login</p>
-            <p>Enter Your Registered Mobile Number And Date Of Birth</p>
-            <span><u onclick="openCloseform('login')">close</u></span>
-            <input type="text" name="mobile" placeholder="Mobile Number" required>
-            <input type="date" name="dob" placeholder="Date Of Birth" required >
-            <input type="submit" value="Login">
-        </form>
-    </div>
-
-    <div  id="registration" class="fromBG" >
-        <form class="formCss">
-            <p>User Registration</p>
-            <p>Enter Your Details</p>
-            <span><u onclick="openCloseform('registration')">close</u></span>
-            <input type="text" placeholder="name" name="name" required >
-            <input type="date" placeholder="DateOfBirth" name="Dob" required >
-            <input type="text" placeholder="Mobile Number" name="mobile" required >
-            <Select name="gender" required>
-                <option value="">Select Gender</option>
-                <option value="M">Male</option>
-                <option value="F">Female</option>
-                <option value="O">Non-Binary</option>
-            </Select>
-            <input type="text" placeholder="Address" name="address" required >
-            <input type="text" placeholder="City" name="city"  required>
-            <input type="text" placeholder="pincode" name="pin"  required>
-            <input type="text" placeholder="AdharcardNo" name="adhar" required>
-            <input type="text" placeholder="PancardNo" name="pan" required>
-            <input type="submit" value="Register">
-        </form>
-    </div>
-
-    <div id="admin" class="fromBG">
-        <form class="formCss">
-            <p>Admin Login</p>
-            <p>Enter Your Registered Mobile Number And Password</p>
-            <span><u onclick="openCloseform('admin')">close</u></span>
-            <input type="text" placeholder="Mobile Number" name="mobile" required>
-            <input type="text" placeholder="Password" name="password" required>
-            <input type="submit" value="Login" required>
-        </form>
-    </div>
-
-    <div id="adminRegi" class="fromBG">
-        <form class="formCss">
-            <p>Admin Registration</p>
-            <p>Enter Your Details</p>
-            <span><u onclick="openCloseform('adminRegi')">close</u></span>
-            <input type="text" placeholder="Name" name="name" required>
-            <input type="text" placeholder="Mobile Number" name="mobile" required>
-            <input type="text" placeholder="Password" name="password" required>
-            <input type="submit" value="Login">
-        </form>
-    </div>
-
+  
 
 
     <footer>

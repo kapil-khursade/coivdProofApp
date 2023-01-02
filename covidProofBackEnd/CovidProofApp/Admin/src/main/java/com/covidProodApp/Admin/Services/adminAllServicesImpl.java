@@ -1,6 +1,5 @@
 package com.covidProodApp.Admin.Services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -122,6 +121,23 @@ public class adminAllServicesImpl implements adminAllServices {
 		List<centerInventory> inveList = vcdao.findById(id).get().getInventory();
 		
 		return new  ResponseEntity<List<centerInventory>>(inveList, HttpStatus.ACCEPTED);
+	}
+
+
+	@Override
+	public ResponseEntity<adminoutput> deleteInventory(Integer id) throws centerException {
+		// TODO Auto-generated method stub
+	    
+		Optional<centerInventory> inve = cidao.findById(id);
+		
+		if(inve.isPresent()) {
+			
+			cidao.delete(inve.get());
+		}else {
+			throw new centerException("No Center Inventory Exist With Id "+id);
+		}
+		
+		return new ResponseEntity<adminoutput>(new adminoutput("Invenotry Deleted"), HttpStatus.ACCEPTED);
 	}
 
 }

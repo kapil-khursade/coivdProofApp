@@ -81,7 +81,6 @@ function deleteVacc(id){
 }
 
 // appendig the center data
-let centers = [];
 centerDetail();
 function centerDetail(){
     
@@ -89,7 +88,6 @@ function centerDetail(){
         let p = await fetch('http://localhost:8880/admin/allVacineCenter')
         let response = await p.json();
 
-        centers = response;
         document.getElementById("centDet").innerHTML=null;
 
         if(response.message==null){
@@ -98,8 +96,8 @@ function centerDetail(){
                 let row = '<tr><td>' + Number(i+1) + '</td><td>' +
                 response[i].centerName + '</td><td>' + response[i].city + '</td><td>' +
                 response[i].state +'</td><td>' + response[i].pincode + 
-                '</td><td onclick="showInventory('+response[i].id+')">' + 
-                "Show Inventory" + '</td><td onclick="deleteCenter('+response[i].id+')">'+ "Delete" + '</td></tr>';
+                '</td><td onclick="showInventory('+response[i].id+')">'+
+                "Show Inventory"+'</td><td onclick="deleteCenter('+response[i].id+')">'+ "Delete" + '</td></tr>';
         
                 document.getElementById("centDet").innerHTML+=(row);
             }
@@ -133,7 +131,8 @@ function showInventory(centerId){
 
             let row = '<tr><td>' + Number(i+1) + '</td><td>' +
             response[i].vaccine.vaccineName + '</td><td>' +
-            response[i].quantity + '</td></tr>'; 
+            response[i].quantity + '</td><td>' +
+            "Delete" + '</td></tr>'; 
 
             document.getElementById("inveBody").innerHTML+=row;
         }
@@ -141,6 +140,11 @@ function showInventory(centerId){
 
     getInvenotryCen();
     openCloseform('getInvenotry');
+}
+
+// Deleteing the inventory
+function deleteInventory(id){
+    alert("deleting "+ id);
 }
 
 // delteing the cneter
@@ -265,7 +269,9 @@ function showApplicant(){
                 let row = '<tr><td>' + Number(i+1) + '</td><td>' +
                 response[i].name + '</td><td>' + 
                 response[i].mobileno + '</td><td>' +
-                response[i].city + '</td><td onclick="deleteUser('+response[i].id+')">' + 
+                response[i].city + '</td><td onclick="showDoseStatus('+response[i].id+')">' +
+                "Show Status"+
+                '</td><td onclick="deleteUser('+response[i].id+')">' + 
                 "Delete" + '</td></tr>';
                 document.getElementById("appliDet").innerHTML+=(row);
                 }
@@ -274,6 +280,54 @@ function showApplicant(){
         }
     }
     getApplicantList();
+
+}
+
+// fetching dose status
+function showDoseStatus(id){
+    openCloseform('doseStatus');
+     // fetching dose status
+     const  getDOSEstatus = async() => {
+
+        let p = await fetch('http://localhost:8880/applicant/getDoseStatus/'+id);
+        let response = await p.json();
+    
+        if(response.dose1){
+            document.querySelector("#doseStatus>div>h4:nth-child(3)>span").innerText=" Taken ";
+            document.querySelector("#doseStatus>div>h4:nth-child(3)").style.backgroundColor="green";
+            document.querySelector("#doseStatus>div>h4:nth-child(4)>span").innerText=response.dose1Date.join("-");
+            document.querySelector("#doseStatus>div>h4:nth-child(4)").style.backgroundColor="green";
+        }
+
+        if(response.dose2){
+            document.querySelector("#doseStatus>div>h4:nth-child(5)>span").innerText=" Taken ";
+            document.querySelector("#doseStatus>div>h4:nth-child(5)").style.backgroundColor="green";
+            document.querySelector("#doseStatus>div>h4:nth-child(6)>span").innerText=response.dose2Date.join("-");
+            document.querySelector("#doseStatus>div>h4:nth-child(6)").style.backgroundColor="green";
+        }
+
+        let but = document.createElement("button");
+        but.innerText="Update Dose";
+        but.onclick = async() => {
+
+            let out = confirm("You Want To Update Dose Status?");
+            if(out){
+                let options = {
+                    method: "PATCH",
+                    headers: {
+                            "Content-type": "application/json"
+                    }
+                }
+                let p = await fetch('http://localhost:8880/applicant/updateDose/'+id, options)
+                let response = await p.json()
+        
+                alert(response.message);
+            }
+        }
+        document.querySelector("#doseStatus>div").append(but);
+    }
+
+    getDOSEstatus();
 }
 
 // delete user

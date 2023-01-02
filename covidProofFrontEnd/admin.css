@@ -11,6 +11,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     cursor: pointer;
 }
+
 #logo{
     width: 10vw;
 }
@@ -88,7 +89,11 @@ table>tbody>tr>td:last-child:hover{
     transform: scale(1.05);
 }
 
-table>tbody>tr>td:nth-child(6){
+#centDet >tr>td:nth-child(6){
+    cursor: pointer;
+}
+
+#appliDet >tr>td:nth-child(5){
     cursor: pointer;
 }
 
@@ -100,11 +105,11 @@ table>tbody>tr:nth-child(even){
 
 .formBG{
     width: 100vw;
-    height: 100%;
+    height: 100vw;
     background-color: rgba(0, 0, 0, 0.4);
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
     z-index: 1;
     display: none;
 }
@@ -169,23 +174,24 @@ table>tbody>tr:nth-child(even){
 }
 
 /* Show inventory */
-#getInvenotry > div{
+#getInvenotry > div, #doseStatus>div{
     width: 500px;
     height: auto;
     background-color: white;
-    margin: 50px auto auto auto;
+    position: relative;
+    margin: 50 auto;
     padding: 1%;
     border-radius: 10px;
 }
 
-#getInvenotry >div>span{
+#getInvenotry >div>span, #doseStatus>div>span{
     position: relative;
     top: -50px;
     left: 455px;
     cursor: pointer;
 }
 
-#getInvenotry >div>p{
+#getInvenotry >div>p, #doseStatus>div>p{
     text-align: center;
     font-weight: 600;
 }
@@ -217,4 +223,22 @@ table>tbody>tr:nth-child(even){
 
 #adminInfo>ul{
     list-style-type: none;
+}
+
+/* dose  status */
+#doseStatus>div>h4{
+    background-color: rgb(231, 13, 13, 0.8);
+    color: wheat;
+}
+
+#doseStatus>div>button{
+    width: 100px;
+    margin: auto 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(194,231,255);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
 }

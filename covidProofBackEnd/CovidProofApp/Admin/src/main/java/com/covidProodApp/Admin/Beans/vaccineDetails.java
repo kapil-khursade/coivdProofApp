@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class vaccineDetails {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer id;
 	private String vaccineName;
 	private int price;

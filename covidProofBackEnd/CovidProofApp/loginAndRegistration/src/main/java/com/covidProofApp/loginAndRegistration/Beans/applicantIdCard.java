@@ -27,11 +27,9 @@ public class applicantIdCard {
 	private String address;
 	private String city;
 	private int pincode;
+	@Column(unique = true)
+	private long adharNo;
+	@Column(unique = true)
+	private String panNo;
 	
-	@OneToOne
-	@JsonIgnore
-	private applicantAdhar adhar;
-	@OneToOne
-	@JsonIgnore
-	private applicantPan pan;
 }

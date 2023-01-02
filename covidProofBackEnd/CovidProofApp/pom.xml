@@ -78,5 +78,7 @@
 	<modules>
 		<module>loginAndRegistration</module>
 		<module>Admin</module>
+		<module>Applicant</module>
+		<module>UtilityMain</module>
 	</modules>
 </project>

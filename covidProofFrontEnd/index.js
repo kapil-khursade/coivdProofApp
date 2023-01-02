@@ -22,13 +22,8 @@ regiForm.onsubmit = function(event){
                     "city": regiForm.city.value,
                     "pincode": regiForm.pin.value,
                     "mobileno":regiForm.mobile.value,
-                     "pan":{
-                        "panNumber" : regiForm.pan.value
-                     },
-                     "adhar": {
-                        "adharNumber": regiForm.adhar.value
-                     }
-                     
+                    "panNo":regiForm.pan.value,
+                    "adharNo":regiForm.adhar.value
                 }),
         }
 

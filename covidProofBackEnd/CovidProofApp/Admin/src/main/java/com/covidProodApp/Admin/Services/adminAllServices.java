@@ -20,4 +20,6 @@ public interface adminAllServices {
 	public ResponseEntity<adminoutput> deleteVaccineCenter(Integer id) throws centerException;
 	public ResponseEntity<adminoutput> addCenterInventory(centerInventory inve, Integer id) throws centerException;
 	public ResponseEntity<List<centerInventory>> getCenterInventory(Integer id) throws centerException;
+	public ResponseEntity<adminoutput> deleteInventory(Integer id) throws centerException;
+	
 }

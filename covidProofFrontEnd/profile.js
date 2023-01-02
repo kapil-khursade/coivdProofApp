@@ -149,6 +149,7 @@ function openCloseform(x){
     document.querySelector('body').classList.toggle('stopScroll');
 }
 
+
 // bppking appointmenr
 let bookappont = document.querySelector('#booking>form');
 
@@ -191,6 +192,26 @@ window.onload = (event) => {
     document.querySelector("#profInfo>ul>li:nth-child(8)>span").innerText = Obj.city;
     document.querySelector("#profInfo>ul>li:nth-child(9)>span").innerText = Obj.pincode;
     console.log(Obj);
+
+    // fetching dose status
+    const  getDOSEstatus = async() => {
+
+        let p = await fetch('http://localhost:8880/applicant/getDoseStatus/'+Obj.id);
+        let response = await p.json();
+        
+        if(response.dose1==true){
+            document.querySelector("#vaccineStatus>div:first-child").style.backgroundColor="green";
+            document.querySelector("#vaccineStatus>div:first-child").innerText+="\nTaken On "+'\n'+response.dose1Date.join("-");
+        }
+        
+        if(response.dose2==true){
+            document.querySelector("#vaccineStatus>div:nth-child(2)").style.backgroundColor="green";
+            document.querySelector("#vaccineStatus>div:nth-child(2)").innerText+="\nTaken On "+'\n'+response.dose2Date.join("-");
+        }
+        
+    }
+
+    getDOSEstatus();
 };
 
 // delete user
