@@ -23,9 +23,10 @@ public class GlobalExceptionHandler {
 	    @ExceptionHandler(Exception.class)
 	 	public ResponseEntity<MyError> allException(Exception ex){
 	    	
-	    	String mes = "Error";
+	    	String mes = ex.getLocalizedMessage();
 	    	if(ex.getMessage().contains("ConstraintViolationException"))mes= "Try New Inputs";
+//	    	if(ex.getMessage().contains("Validation failed"))mes="Improper Inputs";
 	    	
-	    	return new ResponseEntity<MyError>(new MyError(ex.getMessage(), LocalDateTime.now()), HttpStatus.BAD_REQUEST);
+	    	return new ResponseEntity<MyError>(new MyError(mes, LocalDateTime.now()), HttpStatus.BAD_REQUEST);
 	 	}
 }

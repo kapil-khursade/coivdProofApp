@@ -3,6 +3,8 @@ package com.covidProofApp.loginAndRegistration.MyController;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,7 +41,7 @@ public class adminController {
 	private adminAllServices adallser;
 
 	@PostMapping("/register")
-	public ResponseEntity<adminIdCard> registerAdmin(@RequestBody adminIdCard admin) throws adminExceptions {
+	public ResponseEntity<adminIdCard> registerAdmin(@Valid @RequestBody adminIdCard admin) throws adminExceptions {
 		
 		return adser.registerAdmin(admin);
 		

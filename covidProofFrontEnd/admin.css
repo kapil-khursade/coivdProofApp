@@ -93,7 +93,7 @@ table>tbody>tr>td:last-child:hover{
     cursor: pointer;
 }
 
-#appliDet >tr>td:nth-child(5){
+#appliDet >tr>td:nth-child(5), #appliDet >tr>td:nth-child(6){
     cursor: pointer;
 }
 
@@ -241,4 +241,24 @@ table>tbody>tr:nth-child(even){
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+}
+
+/* appointment */
+#appointment>div{
+    width: 500px;
+    height: max-content;
+    padding: 1%;
+    background-color: white;
+    margin: 60px auto;
+    border-radius: 10px;
+}
+
+#appointment>div h2{
+    text-align: center;
+}
+
+#appointment>div span{
+    position: relative;
+    top: -60px;
+    left: 460px;
 }

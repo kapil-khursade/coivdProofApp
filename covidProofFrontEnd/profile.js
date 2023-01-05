@@ -1,148 +1,3 @@
-// ACCESSING THE OPTIONS OF THE CENTERS
-
-// Selecting centre
-
-function showCity(x){
-
-    let n = document.getElementById(x).value;
-
-    let citesOption = document.getElementById("centerCity");
-    citesOption.innerHTML=null;
-
-    if(n==0){
-        citesOption.innerHTML = '<option value="0">Karol Bagh</option>'+
-                                '<option value="1">Sarojini</option>'+
-                                '<option value="2">Janpath</option>';
-    }else if(n==1){
-        citesOption.innerHTML = '<option value="3">Banglru</option>'+
-                                '<option value="4">Belgavi</option>'+
-                                '<option value="5">Hampi</option>';
-    }
-    else if(n==2){
-        citesOption.innerHTML = '<option value="6">Mumbai</option>'+
-                                '<option value="7">Nagpur</option>'+
-                                '<option value="8">Pune</option>';
-    }
-    else if(n==3){
-        citesOption.innerHTML = '<option value="9">Chainai</option>'+
-                                '<option value="10">Vellor</option>'+
-                                '<option value="11">Mahabalipuram</option>';
-    }else if(n==4){
-        citesOption.innerHTML = '<option value="12">Kolkatta</option>'+
-                                '<option value="13">Hubli</option>'+
-                                '<option value="14">Darjling</option>';
-    }
-}
-
-// showing centers
-function showCenter(x){
-
-    let n = document.getElementById(x).value;
-
-    let centerName = document.getElementById("centerName");
-    centerName.innerHTML=null;
-
-    let centers = [
-        ['DPS_Kb', 'ORN_Schhol', 'JRL_Hospital'],
-        ['PNB_Hospital', 'Sham_Vidya_Mandir', 'Veer_Clinic'],
-        ['DPS_Kb', 'ORN_Schhol', 'JRL_Hospital'],
-
-        ['Ced_Hostital', 'Munciple_School', 'RT_Hospital'],
-        ['Kp_Hospital', 'DD_Schhol', 'Namo_Hospital'],
-        ['Shiv_Hostital', 'Kalam_Vidya_Mandir', 'Dev_Clinic'],
-
-        ['Seva_hopital', 'ST_Hospital', 'City_Hospital'],
-        ['Kp_Hostital', 'Sham_Vidya_Mandir', 'Veer Clinic'],
-        ['City_Hospital', 'Government_Schhol', 'MP_Hospital'],
-
-        ['Ps_Hospital', 'Rao_Vidya_Mandir', 'Tilak_Clinic'],
-        ['Shivaji_clinic', 'Pm_Schhol', 'JP_Hospital'],
-        ['Pratap_Hostital', 'Gandhi_Vidya_Mandir', 'City_Hospital'],
-
-        ['DPS_Kb', 'ORN_Schhol', 'JRL_Hospital'],
-        ['PNB_Hostital', 'Sham_Vidya_Mandir', 'Veer Clinic'],
-        ['DPS_Kb', 'ORN_Schhol', 'JRL_Hospital']
-    ];
-
-
-    centerName.innerHTML = '<option value="14">'+ centers[n][0]+ '</option>'+
-                              '<option value="14">'+ centers[n][1]+ '</option>'+
-                              '<option value="14">'+ centers[n][2]+ '</option>';
-
-}
-
-// Seacrching slot
-
-function showCitySer(x){
-
-    let n = document.getElementById(x).value;
-
-    let citesOption = document.getElementById("centerCitySer");
-    citesOption.innerHTML=null;
-
-    if(n==0){
-        citesOption.innerHTML = '<option value="0">Karol Bagh</option>'+
-                                '<option value="1">Sarojini</option>'+
-                                '<option value="2">Janpath</option>';
-    }else if(n==1){
-        citesOption.innerHTML = '<option value="3">Banglru</option>'+
-                                '<option value="4">Belgavi</option>'+
-                                '<option value="5">Hampi</option>';
-    }
-    else if(n==2){
-        citesOption.innerHTML = '<option value="6">Mumbai</option>'+
-                                '<option value="7">Nagpur</option>'+
-                                '<option value="8">Pune</option>';
-    }
-    else if(n==3){
-        citesOption.innerHTML = '<option value="9">Chainai</option>'+
-                                '<option value="10">Vellor</option>'+
-                                '<option value="11">Mahabalipuram</option>';
-    }else if(n==4){
-        citesOption.innerHTML = '<option value="12">Kolkatta</option>'+
-                                '<option value="13">Hubli</option>'+
-                                '<option value="14">Darjling</option>';
-    }
-}
-
-// showing centers
-function showCenterSer(x){
-
-    let n = document.getElementById(x).value;
-
-    let centerName = document.getElementById("centerNameSer");
-    centerName.innerHTML=null;
-
-    let centers = [
-        ['DPS_Kb', 'ORN_Schhol', 'JRL_Hospital'],
-        ['PNB_Hospital', 'Sham_Vidya_Mandir', 'Veer_Clinic'],
-        ['DPS_Kb', 'ORN_Schhol', 'JRL_Hospital'],
-
-        ['Ced_Hostital', 'Munciple_School', 'RT_Hospital'],
-        ['Kp_Hospital', 'DD_Schhol', 'Namo_Hospital'],
-        ['Shiv_Hostital', 'Kalam_Vidya_Mandir', 'Dev_Clinic'],
-
-        ['Seva_hopital', 'ST_Hospital', 'City_Hospital'],
-        ['Kp_Hostital', 'Sham_Vidya_Mandir', 'Veer Clinic'],
-        ['City_Hospital', 'Government_Schhol', 'MP_Hospital'],
-
-        ['Ps_Hospital', 'Rao_Vidya_Mandir', 'Tilak_Clinic'],
-        ['Shivaji_clinic', 'Pm_Schhol', 'JP_Hospital'],
-        ['Pratap_Hostital', 'Gandhi_Vidya_Mandir', 'City_Hospital'],
-
-        ['DPS_Kb', 'ORN_Schhol', 'JRL_Hospital'],
-        ['PNB_Hostital', 'Sham_Vidya_Mandir', 'Veer Clinic'],
-        ['DPS_Kb', 'ORN_Schhol', 'JRL_Hospital']
-    ];
-
-
-    centerName.innerHTML = '<option value="14">'+ centers[n][0]+ '</option>'+
-                              '<option value="14">'+ centers[n][1]+ '</option>'+
-                              '<option value="14">'+ centers[n][2]+ '</option>';
-
-}
-
-
 // opening and closing the form
 function openCloseform(x){
     document.getElementById(x).classList.toggle('formCnt');
@@ -150,28 +5,79 @@ function openCloseform(x){
 }
 
 
-// bppking appointmenr
+// booking appointment
 let bookappont = document.querySelector('#booking>form');
 
-bookappont.addEventListener(onsubmit, function(){
-let Obj = {
-    'dose':bookappont.dose.value,
-    'vaccine':bookappont.vaccine.value,
-    'centerID':bookappont.vaccine.center,
-    'dateOfBooking':bookappont.dateOfBooking.value,
-    'slot':bookappont.slot.value
+// fetching centers
+const getCentersList = async () =>{
+    let p = await fetch('http://localhost:8880/admin/allVacineCenter')
+    let response = await p.json();
+
+    if(response.message==null){
+        for(i=0; i<response.length; i++){
+            document.getElementById("centerBo").innerHTML+='<option value="'+response[i].id+'">'+ response[i].centerName+'</option>';
+        }
+    }
 }
 
-});
+getCentersList();
+
+// fetching inventory
+function showVaccine(){
+    const getInvenotryCen = async () =>{
+        let p = await fetch('http://localhost:8880/admin/getInvenotry/'+bookappont.center.value);
+        let response = await p.json();
+
+        document.getElementById("vaccineBo").innerHTML=null;
+        document.getElementById("vaccineBo").innerHTML='<option value="">Select Vaccine</option>';
+        
+        for(i=0; i<response.length; i++){
+            document.getElementById("vaccineBo").innerHTML+='<option value="'+response[i].vaccine.id+'">'+ response[i].vaccine.vaccineName+' Availble: '+ response[i].quantity+'</option>';
+        }
+    }
+    getInvenotryCen();
+}
 
 
-// serching slot
-let slotSearch = document.querySelector('#serachSlot>form');
-
-slotSearch.addEventListener(onsubmit, function(event){
+bookappont.onsubmit = function(event){
     event.preventDefault();
-    openCloseform('slotDisplay');
-}); 
+    let app = JSON.parse(localStorage.getItem("curLogin"));
+
+    const addAppointment = async () => {
+        let Obj = {
+            'idcard':{
+                'id':app.id
+            },
+            'doseNo':bookappont.deoseNo.value,
+            'vaccine':{
+                'id': bookappont.vaccine.value
+            },
+            'center':{
+                'id':bookappont.center.value
+            },
+            'bookingDate':bookappont.bookdate.value,
+            'slot':bookappont.slot.valueOf
+          }
+
+          console.log(Obj);
+
+            let options = {
+                method: "POST",
+                headers: {
+                        "Content-type": "application/json"
+                },
+                body: JSON.stringify(Obj),
+            }
+            let p = await fetch('http://localhost:8880/applicant/addAppointment', options)
+            let response = await p.json()
+            alert("Appointment Added");
+            window.location.reload();
+    }
+
+    addAppointment();
+
+};
+
 
 
 let Obj = null;
@@ -202,9 +108,17 @@ window.onload = (event) => {
         if(response.dose1==true){
             document.querySelector("#vaccineStatus>div:first-child").style.backgroundColor="green";
             document.querySelector("#vaccineStatus>div:first-child").innerText+="\nTaken On "+'\n'+response.dose1Date.join("-");
+            document.getElementById("doseNoBo").innerHTML=null;
+            document.getElementById("doseNoBo").innerHTML='<option value="">Select DoseNo</option>'+
+            '<option value="2">Dose 2</option>'
         }
         
         if(response.dose2==true){
+            document.querySelector("#booking>form>input:nth-child(8)").value="You Are Fully Vaccinated";
+            document.querySelector("#booking>form>input:nth-child(8)").style.backgroundColor ="green";
+            document.querySelector("#booking>form>input:nth-child(8)").style.width="auto";
+            document.querySelector("#booking>form>input:nth-child(8)").style.cursor="not-allowed"
+            document.querySelector("#booking>form>input:nth-child(8)").disabled = true;
             document.querySelector("#vaccineStatus>div:nth-child(2)").style.backgroundColor="green";
             document.querySelector("#vaccineStatus>div:nth-child(2)").innerText+="\nTaken On "+'\n'+response.dose2Date.join("-");
         }
@@ -212,7 +126,59 @@ window.onload = (event) => {
     }
 
     getDOSEstatus();
+
+
+    // Appointments
+    const getAppointments = async() =>{
+        let p = await fetch('http://localhost:8880/applicant/getAppointments/'+Obj.id);
+        let response = await p.json();
+
+        if(response.length>0){
+            document.getElementById("appointDetails").innerHTML=null;
+
+            for(i=0; i<response.length; i++){
+                let row = '<tr><td>' + response[i].doseNo + '</td><td>' +
+                response[i].center.centerName + '</td><td>' + 
+                response[i].bookingDate.join("-") + '</td><td>' +
+                response[i].slot + '</td><td>' +
+                response[i].vaccine.vaccineName+
+                '</td><td onclick="deleteAppointment('+response[i].id+')">' + 
+                "Cancel" + '</td></tr>';
+
+                document.getElementById("appointDetails").innerHTML+=row;
+            }
+
+        }
+    }
+
+    getAppointments();
 };
+
+// cancel appointment
+ function deleteAppointment(id){
+
+    const cancelAppoint = async() =>{
+        let urlf = "http://localhost:8880/applicant/deleteAppointment/"+id;
+        console.log(urlf);
+        fetch(urlf, {
+        method: 'DELETE'
+        })
+        .then(res => 
+         {
+            if(res.ok){
+                alert("Appointment Canceled"); 
+                window.location.reload();
+            }else{
+                alert("Can't Delete the account, Try Later");
+            }
+         }).catch(err => console.log(err));
+    }
+
+    if(confirm("Do You Want To Cancel The Appointment")){
+        cancelAppoint();
+    }
+
+ }
 
 // delete user
 

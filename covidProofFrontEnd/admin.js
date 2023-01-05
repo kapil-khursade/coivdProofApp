@@ -49,6 +49,8 @@ function vaccDetail(){
                 document.getElementById("invenVaccine").innerHTML+=
                 '<option value="'+ response[i].id +'">'+ response[i].vaccineName +'</option>'; 
             }
+        }else{
+            document.getElementById("invenVaccine").innerHTML='<tr>'+response.message+'</tr>';
         }
     }
     getVaccineList();
@@ -69,14 +71,13 @@ function deleteVacc(id){
         .then(res => 
          {
            alert(res.message);
-           console.log(res)
+           vaccDetail();
          }
         ).catch(err => console.log(err));
     }
     
     if(out){
         deleteVaccine();
-        vaccDetail();
     }
 }
 
@@ -97,7 +98,9 @@ function centerDetail(){
                 response[i].centerName + '</td><td>' + response[i].city + '</td><td>' +
                 response[i].state +'</td><td>' + response[i].pincode + 
                 '</td><td onclick="showInventory('+response[i].id+')">'+
-                "Show Inventory"+'</td><td onclick="deleteCenter('+response[i].id+')">'+ "Delete" + '</td></tr>';
+                "Show Inventory"+ '</td><td>' +
+                response[i].totalDoses +
+                '</td><td onclick="deleteCenter('+response[i].id+')">'+ "Delete" + '</td></tr>';
         
                 document.getElementById("centDet").innerHTML+=(row);
             }
@@ -126,15 +129,18 @@ function showInventory(centerId){
     const getInvenotryCen = async () =>{
         let p = await fetch('http://localhost:8880/admin/getInvenotry/'+centerId);
         let response = await p.json();
-        document.getElementById("inveBody").innerHTML=null;
-        for(i=0; i<response.length; i++){
 
-            let row = '<tr><td>' + Number(i+1) + '</td><td>' +
-            response[i].vaccine.vaccineName + '</td><td>' +
-            response[i].quantity + '</td><td>' +
-            "Delete" + '</td></tr>'; 
-
-            document.getElementById("inveBody").innerHTML+=row;
+        if(response.length>0){
+            document.getElementById("inveBody").innerHTML=null;
+            for(i=0; i<response.length; i++){
+    
+                let row = '<tr><td>' + Number(i+1) + '</td><td>' +
+                response[i].vaccine.vaccineName + '</td><td>' +
+                response[i].quantity + '</td><td onclick="deleteInventory('+response[i].id+')">' +
+                "Delete" + '</td></tr>'; 
+    
+                document.getElementById("inveBody").innerHTML+=row;
+            }
         }
     }
 
@@ -144,12 +150,44 @@ function showInventory(centerId){
 
 // Deleteing the inventory
 function deleteInventory(id){
-    alert("deleting "+ id);
+    const deleteInventoryFun = async () => {
+        let urlf = "http://localhost:8880/admin/deleteInventory/"+id;
+        console.log(urlf);
+        fetch(urlf, {
+        method: 'DELETE'
+        })
+        .then(res => 
+         {
+           if(res.ok)alert("Center Deleted With Id "+centerID);
+           window.location.reload();
+         }
+        ).catch(err => console.log(err));
+    }
+
+    if(confirm("Are You Want To Delete This Inventory")){
+        deleteInventoryFun();
+    }
 }
 
 // delteing the cneter
 function deleteCenter(centerID){
-    alert(centerID+ " deleted");
+    const deleteCenterfun = async () => {
+        let urlf = "http://localhost:8880/admin/deleteCenter/"+centerID;
+        console.log(urlf);
+        fetch(urlf, {
+        method: 'DELETE'
+        })
+        .then(res => 
+         {
+           if(res.ok)alert("Center Deleted With Id "+centerID);
+           centerDetail();
+         }
+        ).catch(err => console.log(err));
+    }
+
+    if(confirm("You Want To Delete Center")){
+        deleteCenterfun();
+    }
 }
 
 
@@ -270,8 +308,8 @@ function showApplicant(){
                 response[i].name + '</td><td>' + 
                 response[i].mobileno + '</td><td>' +
                 response[i].city + '</td><td onclick="showDoseStatus('+response[i].id+')">' +
-                "Show Status"+
-                '</td><td onclick="deleteUser('+response[i].id+')">' + 
+                "Show Status"+'</td><td onclick="showAppointments('+response[i].id+')">' +
+                'Show Appointments'+'</td><td onclick="deleteUser('+response[i].id+')">' + 
                 "Delete" + '</td></tr>';
                 document.getElementById("appliDet").innerHTML+=(row);
                 }
@@ -282,6 +320,61 @@ function showApplicant(){
     getApplicantList();
 
 }
+
+// showing appointments
+function showAppointments(id){
+
+    openCloseform('appointment');
+    
+    const getAppointments = async() =>{
+        let p = await fetch('http://localhost:8880/applicant/getAppointments/'+id);
+        let response = await p.json();
+        if(response.length>0){
+            document.getElementById("appointDetails").innerHTML=null;
+            for(i=0; i<response.length; i++){
+                let row = '<tr><td>' + response[i].doseNo + '</td><td>' +
+                response[i].center.centerName + '</td><td>' + 
+                response[i].bookingDate.join("-") + '</td><td>' +
+                response[i].slot + '</td><td>' +
+                response[i].vaccine.vaccineName+
+                '</td><td onclick="deleteAppointment('+response[i].id+')">' + 
+                "Cancel" + '</td></tr>';
+
+                document.getElementById("appointDetails").innerHTML+=row;
+            }
+
+        }
+    }
+
+    getAppointments();
+}
+
+// cancel appointment
+function deleteAppointment(id){
+
+    const cancelAppoint = async() =>{
+        let urlf = "http://localhost:8880/applicant/deleteAppointment/"+id;
+        console.log(urlf);
+        fetch(urlf, {
+        method: 'DELETE'
+        })
+        .then(res => 
+         {
+            if(res.ok){
+                alert("Appointment Canceled"); 
+                window.location.reload();
+            }else{
+                alert("Can't Delete the account, Try Later");
+            }
+         }).catch(err => console.log(err));
+    }
+
+    if(confirm("Do You Want To Cancel The Appointment")){
+        cancelAppoint();
+    }
+
+ }
+
 
 // fetching dose status
 function showDoseStatus(id){
@@ -306,7 +399,7 @@ function showDoseStatus(id){
             document.querySelector("#doseStatus>div>h4:nth-child(6)").style.backgroundColor="green";
         }
 
-        let but = document.createElement("button");
+        let but = document.getElementById("upDoSta");
         but.innerText="Update Dose";
         but.onclick = async() => {
 
@@ -324,7 +417,7 @@ function showDoseStatus(id){
                 alert(response.message);
             }
         }
-        document.querySelector("#doseStatus>div").append(but);
+
     }
 
     getDOSEstatus();
@@ -347,6 +440,7 @@ function deleteUser(id){
                 if(res.ok){
                     showApplicant();
                     alert("Deleting the account!");
+                    showApplicant();
                 }else{
                     alert("Can't Delete the account, Try Later");
                 }
@@ -379,17 +473,17 @@ addCentForm.onsubmit = function(event){
                     "city": addCentForm.city.value,
                     "state": addCentForm.state.value,
                     "pincode": addCentForm.pin.value,
-                    "inventory": []
                 }
             ),
             }
             let p = await fetch('http://localhost:8880/admin/addCenter', options)
             let response = await p.json();
             alert(response.message);
+            centerDetail();
     }
 
     addCenters();
-    centerDetail();
+    
 }
 
 // Adding the inventory of the center
@@ -415,6 +509,7 @@ addInveForm.onsubmit = function(event){
 
             let p = await fetch('http://localhost:8880/admin/addCenterInventory/'+addInveForm.center.value, options)
             let response = await p.json();
+            vaccDetail();
             alert(response.message);
     }
 

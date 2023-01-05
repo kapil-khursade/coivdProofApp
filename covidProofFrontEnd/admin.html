@@ -36,7 +36,8 @@
                             <td>Remove</td>
                         </thead>
                         <tbody id="inveBody">
-        
+                            <td></td>
+                            <td> No Inventory Added</td>
                         </tbody>
                     </table>
         
@@ -97,7 +98,33 @@
                     <h4>Dose 1 Date <span>Null</span></h4>
                     <h4>Dose 2 Staus <span>Not Taken</span></h4>
                     <h4>Dose 2 Date <span>Null</span></h4>
+                    <button id="upDoSta">Update Dose Status</button>
                 </div>
+            </div>
+
+            <div id="appointment"  class="formBG">
+               <div>
+                <h2>Appointment Details</h2>
+                <span><u onclick="openCloseform('appointment')">close</u></span>
+                <table>
+                    <thead>
+                            <td>Dose No</td>
+                            <td>Vaccine Center</td>
+                            <td>Date</td>
+                            <td>Slot</td>
+                            <td>Vaccine</td>
+                            <td>Cancle</td>
+                    </thead>
+
+                    <tbody id="appointDetails">
+                        <tr>
+                            <td></td>
+                            <td> No Appointments Yet</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+               </div>
             </div>
 
         </div>
@@ -128,7 +155,8 @@
                         <td>Remove</td>
                 </thead>
                 <tbody id="vaccDet">
-
+                    <td></td>
+                    <td> No Vaccine</td>
                 </tbody>
             </table>
         </div>
@@ -143,6 +171,7 @@
                         <td>State</td>
                         <td>Pincode</td>
                         <td>Inventory</td>
+                        <td>Doses Available</td>
                         <td>Remove</td>
                 </thead>
                 <tbody id="centDet">
@@ -161,6 +190,7 @@
                         <td>Mobile</td>
                         <td>City</td>
                         <td>DoseStatus</td>
+                        <td>Applications</td>
                         <td>Delete</td>
                 </thead>
                 <tbody id="appliDet">

@@ -1,5 +1,6 @@
 package com.covidProodApp.Admin.Services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,7 +67,8 @@ public class adminAllServicesImpl implements adminAllServices {
 	@Override
 	public ResponseEntity<adminoutput> addVaccineCenter(vaccineCenter center) throws centerException {
 		// TODO Auto-generated method stub
-		
+		List<centerInventory> inventList = new ArrayList<>();
+		center.setInventory(inventList);
 		vaccineCenter cen = vcdao.save(center);
 		if(cen==null)throw new centerException("Cant Save The Center");
 		
@@ -81,6 +83,14 @@ public class adminAllServicesImpl implements adminAllServices {
 		List<vaccineCenter> centerList = vcdao.findAll();
 		
 		if(centerList.size()==0)throw new centerException("No Center Added");
+		
+		for(vaccineCenter vc:centerList) {
+			int totaldose = 0;
+			for(centerInventory ci:vc.getInventory()) {
+				totaldose+=ci.getQuantity();
+			}
+			vc.setTotalDoses(totaldose);
+		}
 		
 		return new ResponseEntity<List<vaccineCenter>>(centerList, HttpStatus.ACCEPTED);
 	}
@@ -106,9 +116,16 @@ public class adminAllServicesImpl implements adminAllServices {
 		List<centerInventory> inveList = center.getInventory();
 		inveList.add(inve);
 		
+		int totaldose = 0;
+		for(centerInventory ci:inveList) {
+			totaldose+=ci.getQuantity();
+		}
+		
 		center.setInventory(inveList);
+		center.setTotalDoses(totaldose);
 		vcdao.save(center);
-//		cidao.save(inve);
+		inve.setCenter(center);
+		cidao.save(inve);
 		
 		return new ResponseEntity<adminoutput>(new adminoutput("Invenotry Added For "+center.getCenterName()), HttpStatus.ACCEPTED);
 	}
@@ -131,7 +148,6 @@ public class adminAllServicesImpl implements adminAllServices {
 		Optional<centerInventory> inve = cidao.findById(id);
 		
 		if(inve.isPresent()) {
-			
 			cidao.delete(inve.get());
 		}else {
 			throw new centerException("No Center Inventory Exist With Id "+id);
