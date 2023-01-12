@@ -11,12 +11,12 @@ This web app is usfull for user to book the slot for vaccine. Admin can use to m
 
 ## Tech Stach
 
- - Front End
+ ### Front End
  * Javascript
  * HTML
  * CSS
  
- - Back End
+ ### Back End
  * Java
  * MySQL
  * MAVEN
