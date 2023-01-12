@@ -1,7 +1,7 @@
 # Coivd Proof App
-My version of the project done in group at Masai School. Done Backend from the scratch and applied the concepts of Spring Boot and Restfull API.
+The Full Stack Web Development Project, Backend from the scratch and applied the concepts of Spring Boot and Restfull API.
 This is the the Full Stack Web Project consisting of Front End And Back End application done entirly by myslef. 
-This web app is usfull for user to book the slot for vaccine. Admin can use to maintain the vaccine information, logistics and data of user.
+This web app is usefull for user to book the slot for vaccine. Admin can use to maintain the vaccine information, logistics and data of user.
 
 ## Logo
 ![covidProof2](https://user-images.githubusercontent.com/107981122/212028549-4bc9b0e7-7a14-4a05-8e00-b4c7065bca37.png)
